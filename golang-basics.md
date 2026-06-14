@@ -9,13 +9,16 @@ Go (also known as Golang) is an open-source programming language developed by Go
 1. [Basic Syntax](#basic-syntax)
 2. [Variables](#variables)
 3. [Data Types](#data-types)
-4. [Arrays and Slices](#arrays-and-slices)
-5. [Maps](#maps)
-6. [Constants](#constants)
-7. [Functions](#functions)
-8. [Control Flow](#control-flow)
-9. [Error Handling](#error-handling)
-10. [Useful Shortcuts](#useful-shortcuts)
+4. [Type Conversion](#type-conversion)
+5. [Pointers](#pointers)
+6. [Arrays and Slices](#arrays-and-slices)
+7. [Maps](#maps)
+8. [Constants](#constants)
+9. [Functions](#functions)
+10. [Control Flow](#control-flow)
+11. [Error Handling](#error-handling)
+12. [Useful Shortcuts](#useful-shortcuts)
+13. [Further Reading](#further-reading)
 
 ---
 
@@ -171,6 +174,88 @@ Represents a Unicode code point (similar to a character):
 ```go
 var r rune = 'a'  // ASCII value 97
 ```
+
+---
+
+## Type Conversion
+
+Go does not automatically convert most different types for you.
+
+You must convert explicitly:
+
+```go
+var x int = 42
+var y float64 = float64(x)
+```
+
+Another example:
+
+```go
+price := 19.99
+whole := int(price) // becomes 19
+```
+
+Important:
+
+- `int(price)` converts the value
+- converting from `float64` to `int` drops the decimal part
+- conversion is different from formatting a value as text
+
+String formatting example:
+
+```go
+age := 25
+text := fmt.Sprintf("%d", age)
+```
+
+---
+
+## Pointers
+
+A pointer stores the memory address of another value.
+
+Example:
+
+```go
+value := 10
+ptr := &value
+```
+
+Here:
+
+- `value` stores `10`
+- `&value` means "address of value"
+- `ptr` stores that address
+
+To read or change the value through the pointer, use `*`:
+
+```go
+fmt.Println(*ptr) // 10
+*ptr = 20
+fmt.Println(value) // 20
+```
+
+Important:
+
+- `&x` gets the address of `x`
+- `*ptr` gets the value stored at that address
+- pointers let functions or methods modify the original value
+
+Example with a function:
+
+```go
+func updateAge(age *int) {
+    *age = 30
+}
+
+func main() {
+    age := 20
+    updateAge(&age)
+    fmt.Println(age) // 30
+}
+```
+
+Go does not support pointer arithmetic like C.
 
 ---
 
@@ -652,6 +737,15 @@ err := errors.New("something went wrong")
 | `len(s)` | Get length of string/array/slice |
 | `fmt.Println()` | Print with newline |
 | `fmt.Printf()` | Formatted print |
+
+---
+
+## Further Reading
+
+For topics that build on these basics:
+
+- [Go Structs and Interfaces](./golang-structs-and-interfaces.md)
+- [Go File Structure and Scope](./golang-structure-and-scope.md)
 
 ---
 

@@ -4,6 +4,8 @@ import (
 	"fmt"
 )
 
+// this document is about the array, slice, map, and looping in go
+
 func main() {
 	// array
 	intArr := [3]int32{1, 2, 3} //<-- the [] is used as the type so the value of the array stored inside {}
