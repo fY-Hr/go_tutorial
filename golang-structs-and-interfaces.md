@@ -470,3 +470,6 @@ Example:
 
 - [Go Basic Knowledge Guide](./golang-basics.md)
 - [Go File Structure and Scope](./golang-structure-and-scope.md)
+- [Go Goroutines and Mutex](./golang-goroutines-and-mutex.md)
+- [Go Channels](./golang-channels.md)
+- [Go Generics](./golang-generics.md)

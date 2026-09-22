@@ -323,3 +323,13 @@ So if two files are in the same folder, Go treats them like they are parts of on
 - Package-level names must be unique
 - Local variables can reuse the same name in different functions
 - Different folders can use the same function names because they are different packages
+
+---
+
+## Related Notes
+
+- [Go Basic Knowledge Guide](./golang-basics.md)
+- [Go Structs and Interfaces](./golang-structs-and-interfaces.md)
+- [Go Goroutines and Mutex](./golang-goroutines-and-mutex.md)
+- [Go Channels](./golang-channels.md)
+- [Go Generics](./golang-generics.md)
